@@ -171,7 +171,7 @@ PI_MAKER_UNKNOWN=3
             use iso_c_binding,only:c_int
         end function millis
 
-        integer(kind=c_int) function micros() bind(C,name="millis")
+        integer(kind=c_int) function micros() bind(C,name="micros")
             use iso_c_binding,only:c_int
         end function micros
 
@@ -298,17 +298,17 @@ PI_MAKER_UNKNOWN=3
             type(c_ptr),intent(in),value::message
         end subroutine serialPrintf
 
-        integer(kind=c_int) function serialDataAvail(fd) bind(C,name="serialOpen")
+        integer(kind=c_int) function serialDataAvail(fd) bind(C,name="serialDataAvail")
             use iso_c_binding,only:c_int
             integer(kind=c_int),intent(in),value::fd
         end function serialDataAvail
 
-        integer(kind=c_int) function serialGetchar(fd) bind(C,name="serialOpen")
+        integer(kind=c_int) function serialGetchar(fd) bind(C,name="serialGetchar")
             use iso_c_binding,only:c_int
             integer(kind=c_int),intent(in),value::fd
         end function serialGetchar
 
-        subroutine serialFlush(fd) bind(C,name="piUnlock")
+        subroutine serialFlush(fd) bind(C,name="serialFlush")
             use iso_c_binding,only:c_int
             integer(kind=c_int),intent(in),value::fd
         end subroutine serialFlush
