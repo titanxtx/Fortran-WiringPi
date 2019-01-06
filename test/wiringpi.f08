@@ -237,7 +237,7 @@ PI_MAKER_UNKNOWN=3
 
         subroutine piBoardId(model,rev,mem,maker,overVolted) bind(C,name="piBoardId")
             use iso_c_binding,only:c_int
-            integer(kind=c_int),intent(in)::model,rev,mem,maker,overVolted
+            integer(kind=c_int),intent(inout)::model,rev,mem,maker,overVolted
         end subroutine piBoardId
 
         integer(kind=c_int) function piGpioLayout() bind(C,name="piGpioLayout")
