@@ -21,6 +21,8 @@
 !SOFTWARE.
 module wiringpi
 use iso_c_binding,only:c_int
+implicit none
+
 integer(kind=c_int),parameter::WPI_MODE_PINS=0,&
 WPI_MODE_GPIO=1,&
 WPI_MODE_GPIO_SYS=2,&
@@ -77,6 +79,7 @@ PI_MAKER_SONY=0,&
 PI_MAKER_EGOMAN=1,&
 PI_MAKER_EMBEST=2,&
 PI_MAKER_UNKNOWN=3
+
     interface 
         integer(kind=c_int) function wiringPiSetup() bind(C,name="wiringPiSetup")
             use iso_c_binding,only:c_int
